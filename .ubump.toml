@@ -1,0 +1,6 @@
+[ubump]
+template = "v${major}.${minor}.${patch}"
+message = "Bump to ${version}"
+tag = true
+files = ["VERSION", "compose.yaml"]
+version = "1.8.2"
