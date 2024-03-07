@@ -3,11 +3,9 @@ version: "3.8"
 services:
 
   nebula:
+    image: ghcr.io/vd2org/nebula-docker:v1.8.2
     privileged: true
     container_name: nebula
-    build:
-      context: ./
-      dockerfile: Dockerfile
     volumes:
       - /etc/ssh/ssh_host_ed25519_key:/opt/nebula/ssh/ssh_host_ed25519_key:ro
       - /root/.ssh/authorized_keys:/opt/nebula/ssh/authorized_keys:ro
