@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  nebula:
+    privileged: true
+    container_name: nebula
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /etc/ssh/ssh_host_ed25519_key:/opt/nebula/ssh/ssh_host_ed25519_key:ro
+      - /root/.ssh/authorized_keys:/opt/nebula/ssh/authorized_keys:ro
+      - /opt/nebula/config:/opt/nebula/config:ro
+      - /opt/nebula/certs:/opt/nebula/certs:ro
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    restart: on-failure
